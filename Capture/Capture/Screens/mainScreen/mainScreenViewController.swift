@@ -15,6 +15,10 @@ class mainScreenViewController: UIViewController, CLLocationManagerDelegate {
     var lat: Double?
     var lM: CLLocationManager?
     var results = [response]()
+    var w: String?
+    @IBOutlet var f:UIImageView!
+    @IBOutlet var m:UILabel?
+    @IBOutlet var k:UIActivityIndicatorView?
     let headers = [
         "content-type":"application/json",
         "x-api-key":"4b798pJGLtrNnnnHMGjR7Mjrp4pDPh3F"
@@ -77,15 +81,62 @@ class mainScreenViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
+    func parseWeather(d: Data){
+        let decoder = JSONDecoder()
+        let jsonResponse = try! decoder.decode(weather.self, from: d)
+        for i in jsonResponse.weather{
+            w = i.main
+        }
+        if w == "Clouds"{
+            k?.hidesWhenStopped = true
+            k?.stopAnimating()
+            f.image = UIImage(named: "cloudy")
+            m?.text = "Good to wash that car!"
+        }else if w == "Clear"{
+            k?.hidesWhenStopped = true
+            k?.stopAnimating()
+            f.image = UIImage(named: "sunny")
+            m?.text = "When was the last time you washed those wheels? Today looking perfect!"
+        }else{
+            k?.hidesWhenStopped = true
+            k?.stopAnimating()
+            f.image = UIImage(named: "raining")
+            m?.text = "Going to wash your car? Mother nature says otherwise..."
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //getRequest()
-        //lM = CLLocationManager()
-        //lM?.requestAlwaysAuthorization()
-        //lM?.startUpdatingLocation()
-        //lM?.delegate = self
-        //lM?.allowsBackgroundLocationUpdates = true
+        k?.startAnimating()
+        lM = CLLocationManager()
+        lM?.requestAlwaysAuthorization()
+        lM?.startUpdatingLocation()
+        lM?.delegate = self
+        lM?.allowsBackgroundLocationUpdates = true
+        long = lM?.location?.coordinate.longitude
+        lat = lM?.location?.coordinate.latitude
+        print(long)
+        print(lat)
+        if (long == nil || lat == nil){
+            f.image = UIImage(named: "dashed")
+            m?.text = "Unable to retrieve weather! Wash car at your own risk :("
+            k?.hidesWhenStopped = true
+            k?.stopAnimating()
+        }else{
+            let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?lat=\(lat!)&lon=\(long!)&exclude=hourly,daily&appid=43c15c1ed8511b521c98bf9fc10e61d4")!
+            let t = URLSession.shared.dataTask(with: url){
+            data, response, error in
+                if (error != nil){
+                    print(error)
+                }else{
+                    self.parseWeather(d: data!)
+                    print(String(data:data!, encoding: .utf8)!)
+            }
+            }.resume()
+        }
         
+       
         // Do any additional setup after loading the view.
     }
     

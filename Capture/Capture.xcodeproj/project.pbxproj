@@ -29,6 +29,8 @@
 		B7D80D7C282861A00056BE1B /* responseStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D80D7B282861A00056BE1B /* responseStruct.swift */; };
 		B7D80D7E2829D21F0056BE1B /* responsesStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D80D7D2829D21F0056BE1B /* responsesStruct.swift */; };
 		B7D80D80282A1E540056BE1B /* responseMini.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D80D7F282A1E540056BE1B /* responseMini.swift */; };
+		B7D80D83282AB90C0056BE1B /* weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D80D82282AB90C0056BE1B /* weather.swift */; };
+		B7D80D85282AB93D0056BE1B /* internals.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D80D84282AB93D0056BE1B /* internals.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +58,8 @@
 		B7D80D7B282861A00056BE1B /* responseStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = responseStruct.swift; path = Capture/Screens/responseStruct.swift; sourceTree = SOURCE_ROOT; };
 		B7D80D7D2829D21F0056BE1B /* responsesStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = responsesStruct.swift; sourceTree = "<group>"; };
 		B7D80D7F282A1E540056BE1B /* responseMini.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = responseMini.swift; sourceTree = "<group>"; };
+		B7D80D82282AB90C0056BE1B /* weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weather.swift; sourceTree = "<group>"; };
+		B7D80D84282AB93D0056BE1B /* internals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = internals.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +164,8 @@
 				B7D80D7F282A1E540056BE1B /* responseMini.swift */,
 				B7D80D7D2829D21F0056BE1B /* responsesStruct.swift */,
 				B7D80D792827889F0056BE1B /* mainScreenViewController.swift */,
+				B7D80D82282AB90C0056BE1B /* weather.swift */,
+				B7D80D84282AB93D0056BE1B /* internals.swift */,
 			);
 			path = mainScreen;
 			sourceTree = "<group>";
@@ -252,6 +258,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7D80D83282AB90C0056BE1B /* weather.swift in Sources */,
 				B7D80D5C28264E800056BE1B /* StartupViewController.swift in Sources */,
 				B7D80D80282A1E540056BE1B /* responseMini.swift in Sources */,
 				B7D80D7A2827889F0056BE1B /* mainScreenViewController.swift in Sources */,
@@ -261,6 +268,7 @@
 				B7D80D482822385C0056BE1B /* SceneDelegate.swift in Sources */,
 				B7D80D74282703A20056BE1B /* nameViewController.swift in Sources */,
 				B7D80D7E2829D21F0056BE1B /* responsesStruct.swift in Sources */,
+				B7D80D85282AB93D0056BE1B /* internals.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
