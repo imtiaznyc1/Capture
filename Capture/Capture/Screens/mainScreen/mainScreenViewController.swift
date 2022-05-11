@@ -8,6 +8,7 @@
 import UIKit
 import Foundation
 import CoreLocation
+import AudioToolbox
 
 class mainScreenViewController: UIViewController, CLLocationManagerDelegate {
     
@@ -145,6 +146,13 @@ class mainScreenViewController: UIViewController, CLLocationManagerDelegate {
             long = l.coordinate.longitude
             lat = l.coordinate.latitude
         }
+    }
+    
+    @IBAction func addToll(){
+        let g = UIImpactFeedbackGenerator(style: .medium)
+        g.impactOccurred()
+        let nm = storyboard?.instantiateViewController(identifier: "addTollScreen") as! addTollViewController
+        present(nm, animated: true)
     }
 
     /*

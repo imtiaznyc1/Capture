@@ -31,6 +31,7 @@
 		B7D80D80282A1E540056BE1B /* responseMini.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D80D7F282A1E540056BE1B /* responseMini.swift */; };
 		B7D80D83282AB90C0056BE1B /* weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D80D82282AB90C0056BE1B /* weather.swift */; };
 		B7D80D85282AB93D0056BE1B /* internals.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D80D84282AB93D0056BE1B /* internals.swift */; };
+		B7D80D88282B4BBB0056BE1B /* addTollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D80D87282B4BBB0056BE1B /* addTollViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		B7D80D7F282A1E540056BE1B /* responseMini.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = responseMini.swift; sourceTree = "<group>"; };
 		B7D80D82282AB90C0056BE1B /* weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weather.swift; sourceTree = "<group>"; };
 		B7D80D84282AB93D0056BE1B /* internals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = internals.swift; sourceTree = "<group>"; };
+		B7D80D87282B4BBB0056BE1B /* addTollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addTollViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 		B7D80D5928264DA40056BE1B /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				B7D80D86282B4BA30056BE1B /* addTollScreen */,
 				B7D80D782827887E0056BE1B /* mainScreen */,
 				B7D80D7528270C580056BE1B /* vehicleInfo */,
 				B7D80D72282703050056BE1B /* name */,
@@ -175,6 +178,14 @@
 			children = (
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		B7D80D86282B4BA30056BE1B /* addTollScreen */ = {
+			isa = PBXGroup;
+			children = (
+				B7D80D87282B4BBB0056BE1B /* addTollViewController.swift */,
+			);
+			path = addTollScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,6 +275,7 @@
 				B7D80D7A2827889F0056BE1B /* mainScreenViewController.swift in Sources */,
 				B7D80D462822385C0056BE1B /* AppDelegate.swift in Sources */,
 				B7D80D7C282861A00056BE1B /* responseStruct.swift in Sources */,
+				B7D80D88282B4BBB0056BE1B /* addTollViewController.swift in Sources */,
 				B7D80D7728270C710056BE1B /* vehicleInfoViewController.swift in Sources */,
 				B7D80D482822385C0056BE1B /* SceneDelegate.swift in Sources */,
 				B7D80D74282703A20056BE1B /* nameViewController.swift in Sources */,

@@ -16,6 +16,8 @@ class StartupViewController: UIViewController {
     }
     
     @IBAction func nextBtn(){
+        let g = UIImpactFeedbackGenerator(style: .medium)
+        g.impactOccurred()
         let nm = storyboard?.instantiateViewController(identifier: "name") as! nameViewController
         nm.modalPresentationStyle = .fullScreen
         nm.modalTransitionStyle = .crossDissolve
