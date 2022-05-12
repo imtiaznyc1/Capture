@@ -20,6 +20,8 @@ class mainScreenViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet var f:UIImageView!
     @IBOutlet var m:UILabel?
     @IBOutlet var k:UIActivityIndicatorView?
+    @IBOutlet public var a:UILabel?
+    var totalToll: Double? = 0.00
     let headers = [
         "content-type":"application/json",
         "x-api-key":"4b798pJGLtrNnnnHMGjR7Mjrp4pDPh3F"
@@ -82,28 +84,29 @@ class mainScreenViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
+    
     func parseWeather(d: Data){
         let decoder = JSONDecoder()
         let jsonResponse = try! decoder.decode(weather.self, from: d)
         for i in jsonResponse.weather{
             w = i.main
         }
-        if w == "Clouds"{
-            k?.hidesWhenStopped = true
-            k?.stopAnimating()
-            f.image = UIImage(named: "cloudy")
-            m?.text = "Good to wash that car!"
-        }else if w == "Clear"{
-            k?.hidesWhenStopped = true
-            k?.stopAnimating()
-            f.image = UIImage(named: "sunny")
-            m?.text = "When was the last time you washed those wheels? Today looking perfect!"
-        }else{
-            k?.hidesWhenStopped = true
-            k?.stopAnimating()
-            f.image = UIImage(named: "raining")
-            m?.text = "Going to wash your car? Mother nature says otherwise..."
+        DispatchQueue.main.async {
+            if self.w == "Clouds"{
+                self.k?.stopAnimating()
+                self.f.image = UIImage(named: "cloudy")
+                self.m?.text = "Good to wash that car!"
+            }else if self.w == "Clear"{
+                self.k?.stopAnimating()
+                self.f.image = UIImage(named: "sunny")
+                self.m?.text = "When was the last time you washed those wheels? Today looking perfect!"
+            }else{
+                self.k?.stopAnimating()
+                self.f.image = UIImage(named: "raining")
+                self.m?.text = "Going to wash your car? Mother nature says otherwise..."
+            }
         }
+        
     }
     
     override func viewDidLoad() {

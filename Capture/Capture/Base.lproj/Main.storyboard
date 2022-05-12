@@ -299,8 +299,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$0.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PW5-Uh-O8S">
-                                <rect key="frame" x="164" y="705" width="86" height="39"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$ 0 . 0 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PW5-Uh-O8S">
+                                <rect key="frame" x="113" y="705" width="186" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="RedHatMono-Regular" family="Red Hat Mono" pointSize="18"/>
                                 <nil key="textColor"/>
@@ -332,6 +332,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="a" destination="PW5-Uh-O8S" id="oPY-YH-xBU"/>
                         <outlet property="f" destination="PEf-nP-5e9" id="mrF-fB-2aA"/>
                         <outlet property="k" destination="TkI-vu-EnP" id="Tnm-f5-vfv"/>
                         <outlet property="m" destination="WRn-aD-JH7" id="Ctg-04-vOI"/>
@@ -381,7 +382,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="check" translatesAutoresizingMaskIntoConstraints="NO" id="61R-4i-LZY">
-                                <rect key="frame" x="153" y="773" width="108" height="51"/>
+                                <rect key="frame" x="173" y="702" width="66" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -404,7 +405,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Va-DI-1ie">
-                                <rect key="frame" x="123" y="711" width="167" height="49"/>
+                                <rect key="frame" x="123" y="775" width="167" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="C A N C E L" cornerStyle="capsule" titleAlignment="center">

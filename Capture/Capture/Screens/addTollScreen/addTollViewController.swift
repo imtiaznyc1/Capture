@@ -7,19 +7,24 @@
 
 import UIKit
 
+
+
 class addTollViewController: UIViewController {
+    
+    var tollCost: Double?
     @IBOutlet var fromPoint:UITextField?
     @IBOutlet var toPoint:UITextField?
     @IBOutlet var price:UILabel?
     @IBOutlet var k:UIActivityIndicatorView?
     @IBOutlet var cancel:UIButton?
-    var tollCost: Double? = 0.00
+
     
     let headers = [
         "content-type":"application/json",
         "x-api-key":"4b798pJGLtrNnnnHMGjR7Mjrp4pDPh3F"
     ]
     var parameters: [String:Any]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let a = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
@@ -47,7 +52,7 @@ class addTollViewController: UIViewController {
             let t = response as? HTTPURLResponse
               if data == data, let dataString = String(data:data!, encoding: .utf8){
                   self.parse(d:data!)
-                  print("Response data string:\n \(dataString)")
+                  //print("Response data string:\n \(dataString)")
               }
           }
         }).resume()
@@ -55,26 +60,57 @@ class addTollViewController: UIViewController {
     
     func parse(d: Data){
         let decoder = JSONDecoder()
-        let jsonResponse = try! decoder.decode(responses.self, from: d)
-        for i in jsonResponse.routes{
-            print("the cost of the tag is: \n")
-            print(i.costs.tag)
-            tollCost = i.costs.tag
-            if (i.costs.tag > 0){
-                cancel?.setTitle("C O N F I R M", for: .normal)
+        let jsonResponse = try? decoder.decode(responses.self, from: d)
+        if (jsonResponse == nil){
+            DispatchQueue.main.async{
+                let alert = UIAlertController(title: "Invalid address!", message: "", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title:"OK", style: .default, handler: nil))
+                self.present(alert, animated: true)
             }
-            let x:String = String(i.costs.tag)
+        }else{
+            for i in jsonResponse!.routes{
+                print("the cost of the tag is: \n")
+                print(i.costs.tag)
+                tollCost = i.costs.tag
+                print("the tollcost is")
+                print(tollCost)
+                break
+            }
+            let x:String = String(tollCost!)
             var result = "$ "
             for i in x{
+                print(i)
                 result += String(i)
                 result += " "
             }
-            k?.stopAnimating()
-            price!.text = result
+            DispatchQueue.main.async {
+                self.price!.text = result
+                if (self.tollCost! > 0){
+                    self.cancel?.setTitle("C O N F I R M", for: .normal)
+                }
+                self.k?.stopAnimating()
+            }
+            
         }
+
+        
+
     }
     
     @IBAction func canc(){
+        let g = UIImpactFeedbackGenerator(style: .medium)
+        g.impactOccurred()
+        let nm = storyboard?.instantiateViewController(identifier: "mainscreen") as! mainScreenViewController
+        nm.totalToll!+=tollCost!
+        print("bye")
+        print( nm.totalToll!)
+        var d = "$ "
+        let kangaroo:String = String(nm.totalToll!)
+        for i in kangaroo{
+            d+=String(i)
+            d+=" "
+        }
+        nm.a?.text = d
         dismiss(animated: true)
     }
     
@@ -117,7 +153,6 @@ class addTollViewController: UIViewController {
                 ]
               ]
             getRequest()
-            
         }
     }
 
