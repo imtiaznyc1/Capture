@@ -2,6 +2,7 @@
 //  mainScreenViewController.swift
 //  Capture
 //
+// https://www.youtube.com/watch?v=C36sb5sc6lE
 //  Created by Imtiaz Rahman on 5/8/22.
 //
 
@@ -10,18 +11,19 @@ import Foundation
 import CoreLocation
 import AudioToolbox
 
-class mainScreenViewController: UIViewController, CLLocationManagerDelegate {
+class mainScreenViewController: UIViewController, CLLocationManagerDelegate, updateTollTextDelegate{
     
     var long: Double?
     var lat: Double?
     var lM: CLLocationManager?
     var results = [response]()
     var w: String?
+    var plate: String?
     @IBOutlet var f:UIImageView!
     @IBOutlet var m:UILabel?
     @IBOutlet var k:UIActivityIndicatorView?
-    @IBOutlet public var a:UILabel?
-    var totalToll: Double? = 0.00
+    @IBOutlet var a:UILabel!
+    var totalToll: Double?
     let headers = [
         "content-type":"application/json",
         "x-api-key":"4b798pJGLtrNnnnHMGjR7Mjrp4pDPh3F"
@@ -108,9 +110,10 @@ class mainScreenViewController: UIViewController, CLLocationManagerDelegate {
         }
         
     }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        a.text = "$ 0 . 0 0"
+        totalToll = 0.0
         //getRequest()
         k?.startAnimating()
         lM = CLLocationManager()
@@ -151,12 +154,34 @@ class mainScreenViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
+    @IBAction func seeTickets(){
+        let g = UIImpactFeedbackGenerator(style: .medium)
+        g.impactOccurred()
+        let nm = storyboard?.instantiateViewController(identifier: "displayTickets") as! displayTicketsViewController
+        nm.numNeeded = plate
+        present(nm, animated: true)
+    }
     @IBAction func addToll(){
         let g = UIImpactFeedbackGenerator(style: .medium)
         g.impactOccurred()
         let nm = storyboard?.instantiateViewController(identifier: "addTollScreen") as! addTollViewController
+        nm.delegate = self
         present(nm, animated: true)
     }
+    
+    func changeTollText(thing: Double){
+        print("YURRRR")
+        totalToll! += thing
+        var d = "$ "
+        let kangaroo:String = String(totalToll!)
+        for i in kangaroo{
+            d+=String(i)
+            d+=" "
+        }
+        a.text = d
+
+    }
+
 
     /*
     // MARK: - Navigation

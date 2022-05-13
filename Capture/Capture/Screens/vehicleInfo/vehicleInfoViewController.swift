@@ -85,6 +85,7 @@ class vehicleInfoViewController: UIViewController {
             self.present(alert, animated: true)
         }else{
             let nm = storyboard?.instantiateViewController(identifier: "mainscreen") as! mainScreenViewController
+            nm.plate = plNumber
             nm.modalPresentationStyle = .fullScreen
             nm.modalTransitionStyle = .crossDissolve
             present(nm, animated: true)

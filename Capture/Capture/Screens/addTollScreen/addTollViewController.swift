@@ -12,6 +12,7 @@ import UIKit
 class addTollViewController: UIViewController {
     
     var tollCost: Double?
+    var delegate: updateTollTextDelegate?
     @IBOutlet var fromPoint:UITextField?
     @IBOutlet var toPoint:UITextField?
     @IBOutlet var price:UILabel?
@@ -62,6 +63,7 @@ class addTollViewController: UIViewController {
         let decoder = JSONDecoder()
         let jsonResponse = try? decoder.decode(responses.self, from: d)
         if (jsonResponse == nil){
+            tollCost = 0
             DispatchQueue.main.async{
                 let alert = UIAlertController(title: "Invalid address!", message: "", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title:"OK", style: .default, handler: nil))
@@ -100,17 +102,15 @@ class addTollViewController: UIViewController {
     @IBAction func canc(){
         let g = UIImpactFeedbackGenerator(style: .medium)
         g.impactOccurred()
-        let nm = storyboard?.instantiateViewController(identifier: "mainscreen") as! mainScreenViewController
-        nm.totalToll!+=tollCost!
-        print("bye")
-        print( nm.totalToll!)
-        var d = "$ "
-        let kangaroo:String = String(nm.totalToll!)
-        for i in kangaroo{
-            d+=String(i)
-            d+=" "
+        //nm.totalToll!+=tollCost!
+        if(tollCost == nil){
+            
+        }else{
+            print("bye")
+            print( tollCost!)
+            delegate?.changeTollText(thing: tollCost!)
         }
-        nm.a?.text = d
+        
         dismiss(animated: true)
     }
     
@@ -166,4 +166,8 @@ class addTollViewController: UIViewController {
     }
     */
 
+}
+
+protocol updateTollTextDelegate{
+    func changeTollText(thing: Double)
 }

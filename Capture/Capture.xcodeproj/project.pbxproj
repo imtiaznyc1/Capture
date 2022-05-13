@@ -32,6 +32,11 @@
 		B7D80D83282AB90C0056BE1B /* weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D80D82282AB90C0056BE1B /* weather.swift */; };
 		B7D80D85282AB93D0056BE1B /* internals.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D80D84282AB93D0056BE1B /* internals.swift */; };
 		B7D80D88282B4BBB0056BE1B /* addTollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D80D87282B4BBB0056BE1B /* addTollViewController.swift */; };
+		B7D80D8B282E1E350056BE1B /* displayTicketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D80D8A282E1E350056BE1B /* displayTicketsViewController.swift */; };
+		B7D80D8E282E1FC10056BE1B /* ticketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D80D8C282E1FC10056BE1B /* ticketTableViewCell.swift */; };
+		B7D80D8F282E1FC10056BE1B /* ticketTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7D80D8D282E1FC10056BE1B /* ticketTableViewCell.xib */; };
+		B7D80D91282E2C460056BE1B /* ticketMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D80D90282E2C460056BE1B /* ticketMain.swift */; };
+		B7D80D93282E2CBE0056BE1B /* tickets.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D80D92282E2CBE0056BE1B /* tickets.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +67,11 @@
 		B7D80D82282AB90C0056BE1B /* weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weather.swift; sourceTree = "<group>"; };
 		B7D80D84282AB93D0056BE1B /* internals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = internals.swift; sourceTree = "<group>"; };
 		B7D80D87282B4BBB0056BE1B /* addTollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addTollViewController.swift; sourceTree = "<group>"; };
+		B7D80D8A282E1E350056BE1B /* displayTicketsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = displayTicketsViewController.swift; sourceTree = "<group>"; };
+		B7D80D8C282E1FC10056BE1B /* ticketTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ticketTableViewCell.swift; sourceTree = "<group>"; };
+		B7D80D8D282E1FC10056BE1B /* ticketTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ticketTableViewCell.xib; sourceTree = "<group>"; };
+		B7D80D90282E2C460056BE1B /* ticketMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ticketMain.swift; sourceTree = "<group>"; };
+		B7D80D92282E2CBE0056BE1B /* tickets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tickets.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +113,8 @@
 				B7D80D4E2822385F0056BE1B /* Assets.xcassets */,
 				B7D80D502822385F0056BE1B /* LaunchScreen.storyboard */,
 				B7D80D532822385F0056BE1B /* Info.plist */,
+				B7D80D8C282E1FC10056BE1B /* ticketTableViewCell.swift */,
+				B7D80D8D282E1FC10056BE1B /* ticketTableViewCell.xib */,
 			);
 			path = Capture;
 			sourceTree = "<group>";
@@ -110,6 +122,7 @@
 		B7D80D5928264DA40056BE1B /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				B7D80D89282E1E130056BE1B /* displayTickets */,
 				B7D80D86282B4BA30056BE1B /* addTollScreen */,
 				B7D80D782827887E0056BE1B /* mainScreen */,
 				B7D80D7528270C580056BE1B /* vehicleInfo */,
@@ -188,6 +201,16 @@
 			path = addTollScreen;
 			sourceTree = "<group>";
 		};
+		B7D80D89282E1E130056BE1B /* displayTickets */ = {
+			isa = PBXGroup;
+			children = (
+				B7D80D8A282E1E350056BE1B /* displayTicketsViewController.swift */,
+				B7D80D90282E2C460056BE1B /* ticketMain.swift */,
+				B7D80D92282E2CBE0056BE1B /* tickets.swift */,
+			);
+			path = displayTickets;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -253,6 +276,7 @@
 				B7D80D4F2822385F0056BE1B /* Assets.xcassets in Resources */,
 				B7D80D712826FC850056BE1B /* RedHatMono-Medium.ttf in Resources */,
 				B7D80D6D2826FC850056BE1B /* RedHatMono-BoldItalic.ttf in Resources */,
+				B7D80D8F282E1FC10056BE1B /* ticketTableViewCell.xib in Resources */,
 				B7D80D6E2826FC850056BE1B /* RedHatMono-LightItalic.ttf in Resources */,
 				B7D80D682826FC850056BE1B /* RedHatMono-Light.ttf in Resources */,
 				B7D80D692826FC850056BE1B /* RedHatMono-Regular.ttf in Resources */,
@@ -276,11 +300,15 @@
 				B7D80D462822385C0056BE1B /* AppDelegate.swift in Sources */,
 				B7D80D7C282861A00056BE1B /* responseStruct.swift in Sources */,
 				B7D80D88282B4BBB0056BE1B /* addTollViewController.swift in Sources */,
+				B7D80D8E282E1FC10056BE1B /* ticketTableViewCell.swift in Sources */,
+				B7D80D8B282E1E350056BE1B /* displayTicketsViewController.swift in Sources */,
 				B7D80D7728270C710056BE1B /* vehicleInfoViewController.swift in Sources */,
 				B7D80D482822385C0056BE1B /* SceneDelegate.swift in Sources */,
 				B7D80D74282703A20056BE1B /* nameViewController.swift in Sources */,
 				B7D80D7E2829D21F0056BE1B /* responsesStruct.swift in Sources */,
 				B7D80D85282AB93D0056BE1B /* internals.swift in Sources */,
+				B7D80D91282E2C460056BE1B /* ticketMain.swift in Sources */,
+				B7D80D93282E2CBE0056BE1B /* tickets.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
