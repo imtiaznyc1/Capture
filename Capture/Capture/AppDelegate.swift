@@ -1,7 +1,7 @@
 //
 //  AppDelegate.swift
 //  Capture
-//
+//https://stackoverflow.com/questions/43276199/how-can-i-delay-splash-launch-screen-programmatically-in-swift-xcode-ios
 //  Created by Imtiaz Rahman on 5/4/22.
 //
 

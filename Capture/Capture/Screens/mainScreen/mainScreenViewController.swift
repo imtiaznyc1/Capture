@@ -1,7 +1,8 @@
 //
 //  mainScreenViewController.swift
 //  Capture
-//
+//Sources:
+//https://www.youtube.com/watch?v=xsfzGt7k0rI&t=633s
 // https://www.youtube.com/watch?v=C36sb5sc6lE
 //  Created by Imtiaz Rahman on 5/8/22.
 //
@@ -9,7 +10,7 @@
 import UIKit
 import Foundation
 import CoreLocation
-import AudioToolbox
+import AVFoundation
 
 class mainScreenViewController: UIViewController, CLLocationManagerDelegate, updateTollTextDelegate{
     
@@ -55,6 +56,12 @@ class mainScreenViewController: UIViewController, CLLocationManagerDelegate, upd
           "timeRemaining": 60
         ]
       ] as [String : Any]
+    
+    func playSound(){
+        let fP = Bundle.main.url(forResource: "pokemon", withExtension: "mp3")
+        player = try? AVAudioPlayer(contentsOf: fP!)
+        player.play()
+    }
     
     func getRequest(){
         let postData = try? JSONSerialization.data(withJSONObject: parameters, options: [])
@@ -115,6 +122,14 @@ class mainScreenViewController: UIViewController, CLLocationManagerDelegate, upd
         a.text = "$ 0 . 0 0"
         totalToll = 0.0
         //getRequest()
+        let x = UserDefaults.standard.double(forKey: "totalToll")
+        let kangaroo:String = String(x)
+        var d = "$ "
+        for i in kangaroo{
+            d+=String(i)
+            d+=" "
+        }
+        a.text = d
         k?.startAnimating()
         lM = CLLocationManager()
         lM?.requestAlwaysAuthorization()
@@ -155,6 +170,7 @@ class mainScreenViewController: UIViewController, CLLocationManagerDelegate, upd
     }
     
     @IBAction func seeTickets(){
+        self.playSound()
         let g = UIImpactFeedbackGenerator(style: .medium)
         g.impactOccurred()
         let nm = storyboard?.instantiateViewController(identifier: "displayTickets") as! displayTicketsViewController
@@ -162,6 +178,7 @@ class mainScreenViewController: UIViewController, CLLocationManagerDelegate, upd
         present(nm, animated: true)
     }
     @IBAction func addToll(){
+        self.playSound()
         let g = UIImpactFeedbackGenerator(style: .medium)
         g.impactOccurred()
         let nm = storyboard?.instantiateViewController(identifier: "addTollScreen") as! addTollViewController
@@ -172,6 +189,7 @@ class mainScreenViewController: UIViewController, CLLocationManagerDelegate, upd
     func changeTollText(thing: Double){
         print("YURRRR")
         totalToll! += thing
+        UserDefaults.standard.setValue(totalToll, forKey: "totalToll")
         var d = "$ "
         let kangaroo:String = String(totalToll!)
         for i in kangaroo{

@@ -1,13 +1,12 @@
 //
 //  ViewController.swift
 //  Capture
-//
+//Sources: https://www.hackingwithswift.com/read/7/3/parsing-json-using-the-codable-protocol
 //  Created by Imtiaz Rahman on 5/10/22.
 //
 
 import UIKit
-
-
+import AVFoundation
 
 class addTollViewController: UIViewController {
     
@@ -36,6 +35,12 @@ class addTollViewController: UIViewController {
     
     @objc func hideKeyboard(){
         view.endEditing(true)
+    }
+    
+    func playSound(){
+        let fP = Bundle.main.url(forResource: "pokemon", withExtension: "mp3")
+        player = try? AVAudioPlayer(contentsOf: fP!)
+        player.play()
     }
     
     func getRequest(){
@@ -110,7 +115,7 @@ class addTollViewController: UIViewController {
             print( tollCost!)
             delegate?.changeTollText(thing: tollCost!)
         }
-        
+        self.playSound()
         dismiss(animated: true)
     }
     
@@ -124,6 +129,7 @@ class addTollViewController: UIViewController {
             self.present(alert, animated: true)
             k?.stopAnimating()
         }else{
+            self.playSound()
             let g = UIImpactFeedbackGenerator(style: .medium)
             g.impactOccurred()
             print("I am pressed2")

@@ -1,11 +1,16 @@
 //
 //  vehicleInfoViewController.swift
 //  Capture
-//
+//Sources:
+//https://discover.hubpages.com/technology/Play-a-short-sound-clip-with-AudioToolbox-in-Swift
+//https://www.youtube.com/watch?v=SUA2wzjpYjo&t=319s
 //  Created by Imtiaz Rahman on 5/7/22.
 //
 
 import UIKit
+import AVFoundation
+
+var player : AVAudioPlayer!
 
 class vehicleInfoViewController: UIViewController {
     
@@ -35,6 +40,11 @@ class vehicleInfoViewController: UIViewController {
         view.endEditing(true)
     }
     
+    func playSound(){
+        let fP = Bundle.main.url(forResource: "pokemon", withExtension: "mp3")
+        player = try? AVAudioPlayer(contentsOf: fP!)
+        player.play()
+    }
     @IBAction func pressSedan(){
         let g = UIImpactFeedbackGenerator(style: .medium)
         g.impactOccurred()
@@ -43,6 +53,8 @@ class vehicleInfoViewController: UIViewController {
         sed.textColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha:1.0)
         suv.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha:1.0)
         suv.textColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha:1.0)
+        //learned and followed from the textbook UIKitApprentice
+        self.playSound()
     }
     
     @IBAction func pressSUV(){
@@ -53,6 +65,9 @@ class vehicleInfoViewController: UIViewController {
         suv.textColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha:1.0)
         sed.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha:1.0)
         sed.textColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha:1.0)
+        //learned and followed from the textbook UIKitApprentice
+        self.playSound()
+
     }
     
     @IBAction func pressYes(){
@@ -63,6 +78,9 @@ class vehicleInfoViewController: UIViewController {
         yes.textColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha:1.0)
         no.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha:1.0)
         no.textColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha:1.0)
+        //learned and followed from the textbook UIKitApprentice
+        self.playSound()
+
     }
     
     @IBAction func pressNo(){
@@ -73,6 +91,9 @@ class vehicleInfoViewController: UIViewController {
         no.textColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha:1.0)
         yes.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha:1.0)
         yes.textColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha:1.0)
+        //learned and followed from the textbook UIKitApprentice
+        self.playSound()
+
     }
 
     @IBAction func pressFinish(){
@@ -86,10 +107,15 @@ class vehicleInfoViewController: UIViewController {
         }else{
             let nm = storyboard?.instantiateViewController(identifier: "mainscreen") as! mainScreenViewController
             nm.plate = plNumber
+            UserDefaults.standard.setValue(plateN.text, forKey: "plateNumber")
             nm.modalPresentationStyle = .fullScreen
             nm.modalTransitionStyle = .crossDissolve
             present(nm, animated: true)
+            self.playSound()
+
         }
+        //learned and followed from the textbook UIKitApprentice
+  
         
     }
     /*

@@ -16,23 +16,30 @@ class displayTicketsViewController: UIViewController, UITableViewDelegate, UITab
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(numNeeded)
         let nib = UINib(nibName: "ticketTableViewCell", bundle: nil)
         tv.register(nib, forCellReuseIdentifier: "ticketTableViewCell")
+        let storedPlateNumber = UserDefaults.standard.string(forKey: "plateNumber")
+        print(numNeeded!)
+
+        let link = URL(string: "https://data.cityofnewyork.us/resource/nc67-uf89.json?plate=\(numNeeded!)")
+        if (link == nil){
+            print("bad link")
+        }else{
+            let t = URLSession.shared.dataTask(with: link!){
+            data, response, error in
+                if (error != nil){
+                    print(error)
+                }else{
+                    self.parseTickets(d: data!)
+                   // print(String(data:data!, encoding: .utf8)!)
+                    print(self.de)
+                    print(self.p)
+            }
+            }.resume()
+        }
+        
         tv.delegate = self
         tv.dataSource = self
-        let link = URL(string: "https://data.cityofnewyork.us/resource/nc67-uf89.json?plate=\(numNeeded!)")
-        let t = URLSession.shared.dataTask(with: link!){
-        data, response, error in
-            if (error != nil){
-                print(error)
-            }else{
-                self.parseTickets(d: data!)
-               // print(String(data:data!, encoding: .utf8)!)
-                print(self.de)
-                print(self.p)
-        }
-        }.resume()
     
         // Do any additional setup after loading the view.
     }

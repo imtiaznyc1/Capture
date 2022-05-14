@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B78AF8A5282F2E6D0009110D /* pokemon.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B78AF8A4282F2E6D0009110D /* pokemon.mp3 */; };
 		B7D80D462822385C0056BE1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D80D452822385C0056BE1B /* AppDelegate.swift */; };
 		B7D80D482822385C0056BE1B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D80D472822385C0056BE1B /* SceneDelegate.swift */; };
 		B7D80D4D2822385C0056BE1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7D80D4B2822385C0056BE1B /* Main.storyboard */; };
@@ -40,6 +41,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B78AF8A4282F2E6D0009110D /* pokemon.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pokemon.mp3; sourceTree = "<group>"; };
 		B7D80D422822385C0056BE1B /* Capture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Capture.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7D80D452822385C0056BE1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B7D80D472822385C0056BE1B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 		B7D80D442822385C0056BE1B /* Capture */ = {
 			isa = PBXGroup;
 			children = (
+				B78AF8A4282F2E6D0009110D /* pokemon.mp3 */,
 				B7D80D81282A29CC0056BE1B /* Images */,
 				B7D80D5D2826FC850056BE1B /* fonts */,
 				B7D80D5928264DA40056BE1B /* Screens */,
@@ -276,6 +279,7 @@
 				B7D80D4F2822385F0056BE1B /* Assets.xcassets in Resources */,
 				B7D80D712826FC850056BE1B /* RedHatMono-Medium.ttf in Resources */,
 				B7D80D6D2826FC850056BE1B /* RedHatMono-BoldItalic.ttf in Resources */,
+				B78AF8A5282F2E6D0009110D /* pokemon.mp3 in Resources */,
 				B7D80D8F282E1FC10056BE1B /* ticketTableViewCell.xib in Resources */,
 				B7D80D6E2826FC850056BE1B /* RedHatMono-LightItalic.ttf in Resources */,
 				B7D80D682826FC850056BE1B /* RedHatMono-Light.ttf in Resources */,
@@ -458,11 +462,15 @@
 				DEVELOPMENT_TEAM = Q26U9BYS95;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Capture/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Needed to find latitude and longitude for accurate weather";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Needed to find latitude and longitude for accurate weather";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -486,11 +494,15 @@
 				DEVELOPMENT_TEAM = Q26U9BYS95;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Capture/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Needed to find latitude and longitude for accurate weather";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Needed to find latitude and longitude for accurate weather";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
