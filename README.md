@@ -5,5 +5,4 @@
 **API's Used:** OpenWeather API as well as Toll Guru and its 2 week free trial. To retrieve information in regards to ticket information, utlized NYC Open Data to parse ticket information based on the given plate number of the user's plate number for their car.
 
 ## DEMO:
-
-![LOGO](
+captureDemo.MP4
